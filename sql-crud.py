@@ -19,7 +19,6 @@ class Programmer(base):
     nationality = Column(String)
     famous_for = Column(String)
 
-
 # instead of connecting to the database directly, we will ask for a session
 # create a new instance of sessionmaker, then point to our engine (the db)
 Session = sessionmaker(db)
@@ -85,6 +84,8 @@ steve_wozniak = Programmer(
     nationality="American",
     famous_for="Apple"
 )
+
+
 # Create:
 # add each instance of our programmers to our session
 # session.add(ada_lovelace)
@@ -127,7 +128,12 @@ steve_wozniak = Programmer(
 #     else:
 #         print("Gender not defined")
 #     session.commit()
+# updating a single record
+# place = session.query(Place).filter_by(id=7).first()
+# place.visitors_per_year = 1420000
+# session.commit()
 
+# Delete:
 # deleting a single record
 # fname = input("Enter a first name:")
 # lname = input("Enter a last name:")
@@ -144,13 +150,13 @@ steve_wozniak = Programmer(
 #     print("No records found")
 
 # query the database to find all Programmers
-programmers = session.query(Programmer)
-for programmer in programmers:
-    print(
-        programmer.id,
-        programmer.first_name + " " + programmer.last_name,
-        programmer.gender,
-        programmer.nationality,
-        programmer.famous_for,
-        sep=" | "
-    )
+# programmers = session.query(Programmer)
+# for programmer in programmers:
+#     print(
+#         programmer.id,
+#         programmer.first_name + " " + programmer.last_name,
+#         programmer.gender,
+#         programmer.nationality,
+#         programmer.famous_for,
+#         sep=" | "
+#     )
